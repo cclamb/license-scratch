@@ -1,18 +1,44 @@
 
-umm = nil
-action = nil
+is_read = false
 
-Given /^an activity$/ do
-  #pending # express the regexp above with the code you wish you had
-  umm = UsageManagementMechanism.new
+test = {
+  :bundle => {
+    :activity => nil,
+    :client_ctx => nil,
+    :license => nil
+  },
+  :user => nil,
+  :activity => nil,
+  :map => {
+    :read => ->(){ is_read = true }
+  }
+}
+
+Given /^a new context$/ do
+  pending # express the regexp above with the code you wish you had
 end
 
-When /^I submit that activity to the UMM$/ do
-  #pending # express the regexp above with the code you wish you had
-  action = :some_action
+Given /^an analyst$/ do
+  pending # express the regexp above with the code you wish you had
 end
 
-Then /^that activity executes$/ do
-  #pending # express the regexp above with the code you wish you had
-  umm.execute(activity)
+Given /^and activity$/ do
+  pending # express the regexp above with the code you wish you had
 end
+
+Given /^a client context$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
+Given /^a license$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
+Given /^a corresponding action$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
+When /^the analyst submits that activity the action is executed$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
