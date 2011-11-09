@@ -1,9 +1,9 @@
 class UsageManagementMechanism
   
-  def initialize(intepreter, context_mgr, ontology_mgr)
+  def initialize(interpreter, context_mgr, ontology_mgr)
     @interpreter = interpreter
     @context_mgr = context_mgr
-    @ontology_mgr = ontology_manager
+    @ontology_mgr = ontology_mgr
   end
   
   def can_perform?(activity)

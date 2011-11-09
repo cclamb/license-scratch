@@ -6,10 +6,11 @@ Feature: Execute Action
 	Scenario: Can execute action
 		Given a new context
 		And an analyst
-		And and activity
+		And an activity
 		And a client context
 		And a license
-		And a corresponding action
-		When the analyst submits that activity the action is executed
+		And a corresponding "false" action
+		When the analyst submits that activity
+		Then action is executed
 
 	Scenario: Cannot execute action

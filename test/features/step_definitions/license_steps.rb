@@ -1,3 +1,7 @@
+require_relative '../../../lib/license/usage_management_mechanism'
+require_relative '../../../lib/license/interpreter'
+require_relative '../../../lib/license/context_manager'
+require_relative '../../../lib/license/ontology_manager'
 
 is_read = false
 
@@ -14,15 +18,27 @@ test = {
   }
 }
 
+def generate_false_action
+  
+end
+
+def generate_true_action
+  
+end
+
 Given /^a new context$/ do
-  pending # express the regexp above with the code you wish you had
+  @umm = UsageManagementMechanism.new(
+    Interpreter.new,
+    ContextManager.new,
+    OntologyManager.new
+  )
 end
 
 Given /^an analyst$/ do
   pending # express the regexp above with the code you wish you had
 end
 
-Given /^and activity$/ do
+Given /^an activity$/ do
   pending # express the regexp above with the code you wish you had
 end
 
@@ -34,11 +50,16 @@ Given /^a license$/ do
   pending # express the regexp above with the code you wish you had
 end
 
-Given /^a corresponding action$/ do
+Given /^a corresponding "([^"]*)" action$/ do |arg1|
   pending # express the regexp above with the code you wish you had
 end
 
-When /^the analyst submits that activity the action is executed$/ do
+When /^the analyst submits that activity$/ do
   pending # express the regexp above with the code you wish you had
 end
+
+Then /^action is executed$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
 
