@@ -18,6 +18,16 @@ test = {
   }
 }
 
+class TestLicence
+  def can_execute_action(action)
+    case action
+      when :play then false
+      when :read then true
+      else false
+    end
+  end
+end
+
 def generate_false_action
   
 end
