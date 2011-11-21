@@ -35,22 +35,18 @@ Given /^a new context$/ do
 end
 
 Given /^an analyst$/ do
-  pending # express the regexp above with the code you wish you had
+  test[:user] = 'analyst'
 end
 
 Given /^an activity$/ do
-  pending # express the regexp above with the code you wish you had
+  test[:activity] = :read
 end
 
 Given /^a client context$/ do
-  pending # express the regexp above with the code you wish you had
+  test[:bundle][:client_ctx] = { :os => :windows, :device => :workstation}
 end
 
 Given /^a license$/ do
-  pending # express the regexp above with the code you wish you had
-end
-
-Given /^a corresponding "([^"]*)" action$/ do |arg1|
   pending # express the regexp above with the code you wish you had
 end
 
@@ -59,6 +55,10 @@ When /^the analyst submits that activity$/ do
 end
 
 Then /^action is executed$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
+Given /^a corresponding "([^"]*)" action$/ do |arg1|
   pending # express the regexp above with the code you wish you had
 end
 
