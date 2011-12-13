@@ -1,7 +1,7 @@
-require_relative '../../../lib/license/usage_management_mechanism'
-require_relative '../../../lib/license/interpreter'
-require_relative '../../../lib/license/context_manager'
-require_relative '../../../lib/license/ontology_manager'
+require_relative '../../../lib/akira/usage_management_mechanism'
+require_relative '../../../lib/akira/interpreter'
+require_relative '../../../lib/akira/context_manager'
+require_relative '../../../lib/akira/ontology_manager'
 
 repository = nil
 ctx = nil
