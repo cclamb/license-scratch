@@ -1,8 +1,8 @@
 Feature: US-5
 	In order to examine a situational context
-	As an analyst (user S4)
+	As an analyst (user SF)
 	I want to view data associated with a given context
-	(S4, TS/SCE, Bravo, Zebra, JWICS, SE, Terminal, Country/Afganistan)
+	(SF, TS/SCE, Bravo, Zebra, JWICS, SE, Terminal, Country/Afganistan)
 	
 	Scenario: Analyst checks for access
   Scenario: Analyst queries about undisplayed data
@@ -13,10 +13,10 @@ Feature: US-5
     And DoD HUMINT
     And CIDNE Data
     And NSA HUMINT
-    And context: (S4, TS/SCE, Bravo, Zebra, JWICS, SE, Terminal, Country/Afganistan)
-    When S4 views data collection
-    Then S4 can view BFT (Country/Afganistan)
-    And S4 can view CIDNE (Country/Afganistan)
-    And S4 can view DoD HUMINT (unlimited)
-    And S4 can view National Data (unlimited)
-    But S4 can not view NSA HUMINT
+    And context: (SF, TS/SCE, Bravo, Zebra, JWICS, SE, Terminal, Country/Afganistan)
+    When SF views data collection
+    Then SF can view BFT (Country/Afganistan)
+    And SF can view CIDNE (Country/Afganistan)
+    And SF can view DoD HUMINT (unlimited)
+    And SF can view National Data (unlimited)
+    But SF can not view NSA HUMINT
