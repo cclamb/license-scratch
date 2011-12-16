@@ -8,11 +8,7 @@ Feature: US-5
   Scenario: Analyst queries about undisplayed data
   
   Scenario: Analyst views combined data
-    Given National Data
-    And BFT Data
-    And DoD HUMINT
-    And CIDNE Data
-    And NSA HUMINT
+    Given an initial data set of (ND, BFT, DoDH, CIDNE, NSAH)
     And context: (SF, TS/SCE, Bravo, Zebra, JWICS, SE, Terminal, Country/Afganistan)
     When SF views data collection
     Then SF can view BFT (Country/Afganistan)

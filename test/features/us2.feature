@@ -8,11 +8,7 @@ Feature: US-2
   Scenario: Analyst queries about undisplayed data
   
   Scenario: Analyst views combined data
-    Given National Data
-    And BFT Data
-    And DoD HUMINT
-    And CIDNE Data
-    And NSA HUMINT
+    Given an initial data set of (ND, BFT, DoDH, CIDNE, NSAH)
     And context: (CP, Secret, Delta, Zulu, SIPRNet, Blackberry OS, Handheld, City/Kabul)
     When CP views data collection
     Then CP can view National Data (unlimited)
