@@ -1,3 +1,4 @@
+
 * Need to load data sets for tests.  This requires:
  - bundles, linking content to policies
  - policy reader for policies
@@ -8,3 +9,5 @@ Don't couple the XML reader; need to define interface so we can use different li
 Need to be able to use different ontologies for licenses.  Plan for this; use 'ontological description' design for this.
 
 This is really more about defining a *repository* for these bundles; a directory to start with? load it with bundles, which reference a content file and an XML license file? create an OD that the license file can be converted to?
+
+That would work - then the UMM dynamically rectifies content in repo.
