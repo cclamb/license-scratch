@@ -27,6 +27,9 @@ module Scratch
           content[:license] = dirname + '/' + words[1] if words[0] == 'license'
           content[:content] = dirname + '/' + words[1] if words[0] == 'content'
         end
+        
+        p content
+        
       end
     end
      
