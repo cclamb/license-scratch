@@ -1,0 +1,13 @@
+permissions do
+  activity :mashup do
+    environment do
+      restriction { @security_domain >= @jwics }
+    end
+    subject do
+      restriction { @clearance >= @top_secret }
+      restriction { @role == @alpha }
+      restriction { defined, project }
+    end
+    aoi
+  end
+end
