@@ -1,22 +1,27 @@
+require_relative 'restriction_list'
+
 module Babylon
   
   class Activity
     
+    attr_reader :context
+    
     def initialize(tag, &activity)
       @tag = tag
-      @activity = activity
+      @context = {}
+      instance_exec(&activity)
     end
     
     def environment(&b)
-      #instance_exec(b)
+      @context[:environment] = RestrictionList.new(&b)
     end
     
     def subject(&b)
-      #instance_exec(b)
+      @context[:subject] = RestrictionList.new(&b)
     end
     
-    def restriction(&b)
-      
+    def resource(&b)
+      @context[:resource] = RestrictionList.new(&b)
     end
     
     def call
