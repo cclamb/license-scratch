@@ -2,6 +2,8 @@ module Babylon
 
   class Permission
     
+    attr_reader :activities
+    
     def initialize(&license)
       throw :license_needed if license == nil
       @license = license

@@ -24,7 +24,7 @@ module Babylon
     it 'should divide predicates by subject' do
       a = Activity.new(:some_tag) do
         subject {
-          restriction { x = 1}
+          restriction {}
         }
       end
       s = a.context[:subject]
@@ -33,9 +33,9 @@ module Babylon
       
       a1 = Activity.new(:some_tag) do
         subject {
-          restriction { x = 1 }
-          restriction { x = 2 }
-          restriction { x = 3 }
+          restriction {}
+          restriction {}
+          restriction {}
         }
       end  
       s = a1.context[:subject]
@@ -46,7 +46,7 @@ module Babylon
     it 'should divide predicates by resource' do
       a = Activity.new(:some_tag) do
         resource {
-          restriction { x = 1}
+          restriction {}
         }
       end
       s = a.context[:resource]
@@ -55,9 +55,9 @@ module Babylon
       
       a1 = Activity.new(:some_tag) do
         resource {
-          restriction { x = 1 }
-          restriction { x = 2 }
-          restriction { x = 3 }
+          restriction {}
+          restriction {}
+          restriction {}
         }
       end  
       s = a1.context[:resource]
@@ -68,7 +68,7 @@ module Babylon
     it 'should divide predicates by environment' do
       a = Activity.new(:some_tag) do
         environment {
-          restriction { x = 1}
+          restriction {}
         }
       end
       s = a.context[:environment]
@@ -77,9 +77,9 @@ module Babylon
       
       a1 = Activity.new(:some_tag) do
         environment {
-          restriction { x = 1 }
-          restriction { x = 2 }
-          restriction { x = 3 }
+          restriction {}
+          restriction {}
+          restriction {}
         }
       end  
       s = a1.context[:environment]
@@ -90,18 +90,18 @@ module Babylon
     it 'should handle arbitrary combinations of resources, subjects, and environment clauses' do
       a = Activity.new(:a_tag) do
         subject {
-          restriction { x = 1 }
+          restriction {}
         }
         resource {
-          restriction { x = 2 }
-          restriction { x = 2 }
+          restriction {}
+          restriction {}
         }
         environment {
-          restriction { x = 1 }
-          restriction { x = 1 }
-          restriction { x = 1 }
-          restriction { x = 1 }
-          restriction { x = 1 }
+          restriction {}
+          restriction {}
+          restriction {}
+          restriction {}
+          restriction {}
         }
       end
       s, r, e = a.context[:subject], a.context[:resource], a.context[:environment]

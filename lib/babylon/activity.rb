@@ -8,7 +8,7 @@ module Babylon
     
     def initialize(tag, &activity)
       @tag = tag
-      @context = {}
+      @context = {:subject => [], :environment => [], :resource => []}
       instance_exec(&activity)
     end
     
