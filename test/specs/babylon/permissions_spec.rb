@@ -18,7 +18,7 @@ module Babylon
     it 'should store the submitted block for later evaluation' do
       block_ctx = false
       p = permission { block_ctx = true }
-      p.license.call
+      p.call
       block_ctx.should == true
     end
     
@@ -27,9 +27,9 @@ module Babylon
       p = permission do
         block_ctx = block_ctx + 1
       end
-      p.license.call
-      p.license.call
-      p.license.call
+      p.call
+      p.call
+      p.call
       block_ctx.should == 3
     end
   end
