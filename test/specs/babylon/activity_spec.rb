@@ -5,8 +5,8 @@ require_relative '../../../lib/babylon/activity'
 module Babylon
   
   describe Activity do
+    
     it 'should require a tag an a block on creation' do
-      
       is_error = false
       begin
         Activity.new

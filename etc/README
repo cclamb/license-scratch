@@ -1,1 +1,6 @@
 misc files
+
+Babylon
+---
+-> two steps, first we interpret the DSL via the supplied classes and function definitions creating lists of subject, environment, and resource predicates.
+-> The predicates are evaluated (via instance_exec) in a context; specifically subject, resource, and environment contexts.

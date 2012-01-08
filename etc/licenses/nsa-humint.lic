@@ -1,13 +1,12 @@
-permissions {
-  activity(:mashup) {
-    environment {
-      restriction { @security_domain >= @jwics }
-    }
-    subject {
-      restriction { @clearance >= @top_secret }
-      restriction { @role == @alpha }
-      restriction { defined, project }
-    }
-    aoi
+
+activity(:mashup) {
+  environment {
+    restriction { @security_domain >= @jwics }
   }
+  subject {
+    restriction { @clearance >= @top_secret }
+    restriction { @role == @alpha }
+    restriction { defined, project }
+  }
+  aoi
 }

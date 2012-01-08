@@ -1,0 +1,18 @@
+
+activity(:test) {
+  subject { 
+    restriction {}
+    restriction {}
+  }
+  resource { 
+    restriction {}
+  }
+  environment { 
+    restriction {}
+    restriction {}
+    restriction {}
+    restriction {}
+    restriction {}
+    restriction {}
+  }
+}

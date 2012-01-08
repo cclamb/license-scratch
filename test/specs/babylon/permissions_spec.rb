@@ -148,7 +148,41 @@ module Babylon
         p.activities[:a2].context[:subject].size.should == 2
         p.activities[:a2].context[:environment].size.should == 1
       end
-      
+  
+      it 'should be able to handle a script as a lambda' do
+        
+        script = ->() {
+          activity(:test) {
+            subject { 
+              restriction {}
+              restriction {}
+            }
+            resource { 
+              restriction {}
+            }
+            environment { 
+              restriction {}
+              restriction {}
+              restriction {}
+              restriction {}
+              restriction {}
+              restriction {}
+            }
+          }
+        }
+        
+        p = Permission.new(&script)
+        p.call
+        p.activities[:test].context[:subject].size.should == 2
+        p.activities[:test].context[:resource].size.should == 1
+        p.activities[:test].context[:environment].size.should == 6
+      end
+  
+    end
+    
+    context 'external scrirpts contained in files' do
+      it 'should be able to execute from a file'
+      it 'should be abel to execute as a string'
     end
     
   end
