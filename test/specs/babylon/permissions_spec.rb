@@ -180,12 +180,34 @@ module Babylon
   
     end
     
-    context 'external scrirpts contained in files' do
-      it 'should be able to execute from a file'
-      it 'should be abel to execute as a string'
+    context 'external scripts' do
+    
+      it 'should be able to execute from a file' do
+        p = Permission.new do
+          instance_eval(File.read('etc/licenses/simple.lic'))
+        end
+        p.call
+        validate_simple(p)
+      end
+      
+      it 'should be able to execute as a string' do
+        s = File.read('etc/licenses/simple.lic')
+        p = Permission.new { instance_eval(s) }
+        p.call
+        validate_simple(p)
+      end
+      
     end
     
   end
 
-  
+end
+
+def validate_simple(p)
+  p.activities.size.should == 1
+  test_activity = p.activities[:test]
+  test_activity.should_not == nil
+  test_activity.context[:subject].size.should == 2
+  test_activity.context[:resource].size.should == 1
+  test_activity.context[:environment].size.should == 6
 end
