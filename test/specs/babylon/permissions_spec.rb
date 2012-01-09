@@ -11,7 +11,7 @@ module Babylon
       it 'should throw an exception if no block follows the keyword' do
         is_error = false
         begin
-          permission
+          Permission.new
         rescue ArgumentError
           is_error = true
         end
@@ -20,14 +20,14 @@ module Babylon
     
       it 'should store the submitted block for later evaluation' do
         block_ctx = false
-        p = permission { block_ctx = true }
+        p = Permission.new { block_ctx = true }
         p.call
         block_ctx.should == true
       end
     
       it 'should evalute a stored block man arbitrary number of times' do
         block_ctx = 0
-        p = permission do
+        p = Permission.new do
           block_ctx = block_ctx + 1
         end
         p.call
@@ -41,7 +41,7 @@ module Babylon
     context 'more complex script-like constructs' do
       
       it 'should handle a single activity' do
-        p = permission do
+        p = Permission.new do
           activity(:a1) {
             subject { 
               restriction {}
@@ -54,7 +54,7 @@ module Babylon
       end
     
       it 'should handle a single activity with arbitrary subject, etc.' do
-        p = permission do
+        p = Permission.new do
           activity(:a1) {
             subject { 
               restriction {}
@@ -81,7 +81,7 @@ module Babylon
       end
       
       it 'should handle multiple simple activities' do
-        p = permission do
+        p = Permission.new do
           activity(:a0) {
             subject { 
               restriction {}
@@ -106,7 +106,7 @@ module Babylon
       end
       
       it 'should handle multiple activities with arbitrary attributes' do
-        p = permission do
+        p = Permission.new do
           activity(:a0) {
             subject { 
               restriction {}

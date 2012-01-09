@@ -1,4 +1,7 @@
-require_relative 'restriction_list'
+require_relative 'subject'
+require_relative 'resource'
+require_relative 'environment'
+
 
 module Babylon
   
@@ -13,15 +16,15 @@ module Babylon
     end
     
     def environment(&b)
-      @context[:environment] = RestrictionList.new(&b)
+      @context[:environment] = Environment.new(&b)
     end
     
     def subject(&b)
-      @context[:subject] = RestrictionList.new(&b)
+      @context[:subject] = Subject.new(&b)
     end
     
     def resource(&b)
-      @context[:resource] = RestrictionList.new(&b)
+      @context[:resource] = Resource.new(&b)
     end
     
     def call

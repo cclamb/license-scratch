@@ -22,7 +22,3 @@ module Babylon
   
 end
 
-def permission(&license)
-  Babylon::Permission.new(&license)
-end
-
