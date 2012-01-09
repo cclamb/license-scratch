@@ -15,14 +15,11 @@ class Evaluator
   def evaluate(activity_name)
     activity = @permission.activities[activity_name]
     subject = @ctx[:subject]
-    retval = false
-    
-    # THIS WILL NOT WORK!!!
+    values = []
     activity.subject.each do |pred|
-      subject.instance_exec do
-        retval = pred.call
-      end
+      values.push(subject.instance_exec(&pred)
     end
+    # HOW TO EVALUTE PREDS?
   end
   
 end
