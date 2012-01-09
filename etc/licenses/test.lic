@@ -1,0 +1,7 @@
+activity(:test) {
+  subject { 
+    restriction { 
+      clearance >= Clearance::SECRET
+    }
+  }
+}
