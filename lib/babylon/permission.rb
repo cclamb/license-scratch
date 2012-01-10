@@ -1,3 +1,5 @@
+require_relative 'activity'
+
 module Babylon
 
   class Permission

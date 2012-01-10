@@ -17,7 +17,7 @@ class Device
   I_PHONE = :iphone
 end
 
-class Subject
+class TestSubject
   attr_reader :clearance
   def initialize(clearance)
     @clearance = clearance
@@ -44,18 +44,17 @@ module Babylon
   
     before(:each) do
       @ctx = { 
-        :subject => Subject.new,
-        :resource => Resource.new,
-        :environment => Environment.new
+        :subject => TestSubject.new(Clearance::SECRET),
+        :resource => TestResource.new(Classification::UNCLASSIFIED),
+        :environment => TestEnvironment.new(Device::WORKSTATION)
       }
     end
   
     context 'executing in a local context' do
       it 'should load a license in a file' do
-        fail
-        e = Evaluator.new(ctx)
+        e = Evaluator.new(@ctx)
         e.load_from_file('etc/licenses/test.lic')
-        result = e.evaluate(:test)
+        result, rationale = e.evaluate(:test)
         result.should == true
       end
       

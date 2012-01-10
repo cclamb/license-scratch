@@ -33,6 +33,22 @@ module Babylon
       call_cnt.should == 6
     end
     
+    it 'should handle named restrictions' do
+      call_cnt = 0
+      r = RestrictionList.new do
+        restriction('restriction 1') { 
+          true
+          call_cnt = call_cnt + 1 
+        }
+        restriction(:restriction_1) { 
+          true
+          call_cnt = call_cnt + 1 
+        }
+      end
+      r.call
+      call_cnt.should == 2
+    end
+    
   end
   
 end
