@@ -1,6 +1,10 @@
+module Messages
+  Restriction = 'metadata'
+end
+
 activity(:test) {
   subject { 
-    restriction { 
+    restriction(Messages::Restriction) { 
       clearance >= Clearance::SECRET
     }
   }

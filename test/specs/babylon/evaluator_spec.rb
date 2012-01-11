@@ -43,26 +43,50 @@ module Babylon
   describe Evaluator do
   
     before(:each) do
-      @ctx = { 
+      @pass_ctx = { 
         :subject => TestSubject.new(Clearance::SECRET),
+        :resource => TestResource.new(Classification::UNCLASSIFIED),
+        :environment => TestEnvironment.new(Device::WORKSTATION)
+      }
+      @fail_ctx = { 
+        :subject => TestSubject.new(Clearance::UNCLASSIFIED),
         :resource => TestResource.new(Classification::UNCLASSIFIED),
         :environment => TestEnvironment.new(Device::WORKSTATION)
       }
     end
   
     context 'executing in a local context' do
+    
       it 'should load a license in a file' do
-        e = Evaluator.new(@ctx)
+        e = Evaluator.new(@pass_ctx)
         e.load_from_file('etc/licenses/test.lic')
-        result, rationale = e.evaluate(:test)
-        result.should == true
       end
       
-      it 'should evaluate that license against a supplied context'
+      it 'should evaluate a license against a supplied context' do
+        e = Evaluator.new(@pass_ctx)
+        e.load_from_file('etc/licenses/test.lic')
+        result, rationale = e.evaluate(:test)
+        result.should == true   
+        e = Evaluator.new(@fail_ctx)
+        e.load_from_file('etc/licenses/test.lic')
+        result, rationale = e.evaluate(:test)
+        result.should == false    
+      end
+      
+      it 'should return metadata about the license on failure' do
+        e = Evaluator.new(@fail_ctx)
+        e.load_from_file('etc/licenses/test.lic')
+        result, rationale = e.evaluate(:test)
+        result.should == false
+        rationale[0].should == 'metadata'
+      end
+      
     end
+    
     context 'executing in a distributed environment' do
       it 'should load a URI'
     end
+    
   end
   
 end
